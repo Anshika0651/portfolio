@@ -60,21 +60,21 @@ const initialSuggestedReplies: SuggestedReply[] = [
 
 function TypingIndicator() {
   return (
-    <div className="flex justify-start">
-      <div className="bg-zinc-200 text-zinc-900 rounded-2xl rounded-bl-md px-4 py-3">
+    <div className="flex justify-end">
+      <div className="bg-[#007AFF] text-white rounded-2xl rounded-br-md px-4 py-3">
         <div className="flex gap-1">
           <motion.span
-            className="w-2 h-2 bg-zinc-400 rounded-full"
+            className="w-2 h-2 bg-white/60 rounded-full"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0 }}
           />
           <motion.span
-            className="w-2 h-2 bg-zinc-400 rounded-full"
+            className="w-2 h-2 bg-white/60 rounded-full"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
           />
           <motion.span
-            className="w-2 h-2 bg-zinc-400 rounded-full"
+            className="w-2 h-2 bg-white/60 rounded-full"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
           />
@@ -93,8 +93,8 @@ export default function ProjectPage() {
   const [messages, setMessages] = useState<Message[]>(() => {
     if (!project) return []
     return [
-      { id: "q1", sender: "project", text: project.initialQuestion },
-      { id: "a1", sender: "user", text: project.initialAnswer },
+      { id: "q1", sender: "user", text: project.initialQuestion },
+      { id: "a1", sender: "project", text: project.initialAnswer },
     ]
   })
   const [availableReplies, setAvailableReplies] = useState<SuggestedReply[]>(initialSuggestedReplies)
@@ -120,7 +120,7 @@ export default function ProjectPage() {
         projectReply = "still cooking this one 👀 check back soon"
         break
       case "collab":
-        userMessage = "let's collab!"
+        userMessage = "want to collab?"
         projectReply = "DM me — hello@yourname.com 👋"
         break
     }
@@ -128,7 +128,7 @@ export default function ProjectPage() {
     // Remove the clicked chip immediately
     setAvailableReplies(prev => prev.filter(r => r.id !== reply.id))
 
-    // Add user message
+    // Add user message (grey bubble - visitor asking)
     const userMsgId = `user-${Date.now()}`
     setMessages(prev => [
       ...prev,
@@ -138,7 +138,7 @@ export default function ProjectPage() {
     // Show typing indicator
     setIsTyping(true)
 
-    // After delay, show reply
+    // After delay, show reply (blue bubble - you answering)
     setTimeout(() => {
       setIsTyping(false)
       const replyMsgId = `reply-${Date.now()}`
@@ -220,7 +220,7 @@ export default function ProjectPage() {
                   {messages.map((message) => (
                     <motion.div
                       key={message.id}
-                      className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+                      className={`flex ${message.sender === "project" ? "justify-end" : "justify-start"}`}
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.25 }}
@@ -228,7 +228,7 @@ export default function ProjectPage() {
                     >
                       <div
                         className={`max-w-[70%] px-4 py-2.5 rounded-2xl text-[15px] leading-relaxed ${
-                          message.sender === "user"
+                          message.sender === "project"
                             ? "bg-[#007AFF] text-white rounded-br-md"
                             : "bg-zinc-200 text-zinc-900 rounded-bl-md"
                         }`}
