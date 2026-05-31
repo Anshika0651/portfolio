@@ -113,7 +113,7 @@ export function SocialsBag({ position, rotation, delay }: SocialsBagProps) {
           <img
             src="/423c465fd232116e66a1efaf96a02fca-removebg-preview.png"
             alt="socials bag"
-            className="w-[140px] h-auto object-contain"
+            className="w-[150px] h-auto object-contain"
             draggable={false}
           />
         </div>

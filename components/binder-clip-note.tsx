@@ -41,11 +41,11 @@ export function BinderClipNote({ position, rotation, delay }: BinderClipNoteProp
           animate={{ scale: isHovered ? 1.05 : 1 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="relative w-[120px] h-auto">
+          <div className="relative w-[160px] h-auto">
             <img
               src="/🌟🧊Realistic_Blue_Sticky_Note_&_Black_Binder_Clip_,_Free_PNG_File_for_Your_Creative_Project🧊🌟.jpg"
               alt="note"
-              className="w-[120px] h-auto object-contain"
+              className="w-[160px] h-auto object-contain"
               draggable={false}
             />
 
@@ -54,26 +54,26 @@ export function BinderClipNote({ position, rotation, delay }: BinderClipNoteProp
               {isHovered && (
                 <motion.div
                   className="absolute inset-0 flex items-start justify-start pointer-events-none overflow-hidden"
-                  style={{ paddingTop: "40px", paddingLeft: "12px", paddingRight: "12px" }}
+                  style={{ paddingTop: "45px", paddingLeft: "14px", paddingRight: "14px" }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <div className="text-left leading-tight">
-                    <p className="font-mono text-[9px] text-espresso whitespace-nowrap">
-                      open to internships &amp;
+                  <div className="text-left leading-[1.4]">
+                    <p className="font-mono text-[8px] text-espresso whitespace-normal break-words">
+                      open to internships &amp; full
                     </p>
-                    <p className="font-mono text-[9px] text-espresso whitespace-nowrap">
-                      full time roles
+                    <p className="font-mono text-[8px] text-espresso whitespace-normal break-words">
+                      time roles
                     </p>
-                    <p className="font-mono text-[9px] text-espresso/70 whitespace-nowrap mt-1">
-                      (actively looking)
+                    <p className="font-mono text-[8px] text-espresso/70 whitespace-normal break-words mt-0.5">
+                      (actively looking 👀)
                     </p>
-                    <p className="font-mono text-[9px] text-espresso whitespace-nowrap mt-1">
+                    <p className="font-mono text-[8px] text-espresso whitespace-normal break-words mt-0.5">
                       remote / hybrid / anywhere
                     </p>
-                    <p className="font-mono text-[9px] text-espresso whitespace-nowrap">
+                    <p className="font-mono text-[8px] text-espresso whitespace-normal break-words">
                       interesting
                     </p>
                   </div>

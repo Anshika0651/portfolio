@@ -34,11 +34,11 @@ export function StackBasket({ position, rotation, delay }: StackBasketProps) {
       transition={{ duration: 0.4, delay: delay * 0.1 }}
     >
       <motion.div
-        className="flex flex-col items-center gap-1 relative"
+        className="flex flex-col items-center gap-1 relative w-[160px]"
         style={{ rotate: rotation }}
         animate={{ y: [0, -3, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay }}
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: isHovered ? 1.6 : 1.08 }}
         drag
         dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
         dragElastic={0.1}
@@ -46,52 +46,55 @@ export function StackBasket({ position, rotation, delay }: StackBasketProps) {
         onDragEnd={() => setTimeout(() => setIsDragging(false), 100)}
         onHoverStart={() => !isDragging && setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
+        transition={{ duration: 0.3 }}
       >
-        {/* Tech stack icons that float above basket in an arc */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-1">
-          <AnimatePresence>
-            {isHovered &&
-              techIcons.map((tech, index) => {
-                // Arc positioning: spread icons across a slight curve
-                const total = techIcons.length
-                const arcOffset = (index - (total - 1) / 2) * 0.8
-                const yArc = -Math.abs(arcOffset) * 2
-                return (
-                  <motion.div
-                    key={tech.name}
-                    className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-md flex-shrink-0"
-                    style={{ marginTop: yArc }}
-                    initial={{ y: 20, opacity: 0, scale: 0.5 }}
-                    animate={{ y: yArc, opacity: 1, scale: 1 }}
-                    exit={{ y: 20, opacity: 0, scale: 0.5 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 15,
-                      delay: index * 0.08,
-                    }}
-                    whileHover={{ scale: 1.3, y: yArc - 4 }}
-                  >
-                    <img
-                      src={tech.url}
-                      alt={tech.name}
-                      className="w-4 h-4 object-contain"
-                      draggable={false}
-                    />
-                  </motion.div>
-                )
-              })}
-          </AnimatePresence>
-        </div>
-
         {/* Basket PNG image */}
-        <div className="drop-shadow-lg">
+        <div className="drop-shadow-lg relative">
           <img
             src="/942d3a7555d16287e07d911a17087e16-removebg-preview.png"
             alt="stack basket"
-            className="w-[150px] h-auto object-contain"
+            className="w-[160px] h-auto object-contain"
             draggable={false}
           />
+
+          {/* Tech stack icons inside basket on hover */}
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.1 }}
+              >
+                <div className="grid grid-cols-3 gap-3">
+                  {techIcons.map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md flex-shrink-0"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 15,
+                        delay: 0.3 + index * 0.06,
+                      }}
+                      whileHover={{ scale: 1.15 }}
+                    >
+                      <img
+                        src={tech.url}
+                        alt={tech.name}
+                        className="w-3.5 h-3.5 object-contain"
+                        draggable={false}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <span className="font-mono text-xs text-espresso/90 bg-desktop/80 px-2 py-0.5 rounded whitespace-nowrap">

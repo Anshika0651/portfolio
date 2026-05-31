@@ -123,7 +123,7 @@ export default function DesktopPage() {
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
             <SocialsBag
-              position={{ x: 46, y: 52 }}
+              position={{ x: 46, y: 28 }}
               rotation={-2}
               delay={7}
             />
@@ -153,7 +153,7 @@ export default function DesktopPage() {
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
             <StackBasket
-              position={{ x: 6, y: 62 }}
+              position={{ x: 6, y: 38 }}
               rotation={-3}
               delay={9}
             />

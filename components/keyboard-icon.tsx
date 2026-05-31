@@ -96,9 +96,9 @@ export function KeyboardIcon({ position, rotation, delay }: KeyboardIconProps) {
         {/* Keyboard PNG image */}
         <div className="drop-shadow-lg">
           <img
-            src="/453440adb9e7c6fe80ec034bbc79dd6a-removebg-preview.png"
+            src="/e4bf20d8706fbfa08100188a84c4401f-removebg-preview.png"
             alt="keyboard"
-            className="w-[170px] h-auto object-contain"
+            className="w-[180px] h-auto object-contain"
             draggable={false}
           />
         </div>
