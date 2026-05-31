@@ -7,7 +7,7 @@ import { DesktopIcon } from "@/components/desktop-icon"
 import { SocialsBag } from "@/components/socials-bag"
 import { KeyboardIcon } from "@/components/keyboard-icon"
 import { StackBasket } from "@/components/stack-basket"
-import { ClipboardNote } from "@/components/clipboard-note"
+import { BinderClipNote } from "@/components/binder-clip-note"
 
 const desktopIcons = [
   { icon: "folder" as const, label: "about.exe", href: "/about", position: { x: 8, y: 15 }, rotation: -2 },
@@ -167,7 +167,7 @@ export default function DesktopPage() {
           <motion.div
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
-            <ClipboardNote
+            <BinderClipNote
               position={{ x: 88, y: 28 }}
               rotation={3}
               delay={10}

@@ -89,7 +89,7 @@ export function StackBasket({ position, rotation, delay }: StackBasketProps) {
           <img
             src="/942d3a7555d16287e07d911a17087e16-removebg-preview.png"
             alt="stack basket"
-            className="w-[110px] h-auto object-contain"
+            className="w-[150px] h-auto object-contain"
             draggable={false}
           />
         </div>
