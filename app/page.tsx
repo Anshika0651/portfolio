@@ -156,6 +156,8 @@ export default function DesktopPage() {
               position={{ x: 65, y: 45 }}
               rotation={2}
               delay={9}
+<<<<<<< HEAD
+=======
             />
           </motion.div>
         )}
@@ -171,10 +173,37 @@ export default function DesktopPage() {
               position={{ x: 82, y: 45 }}
               rotation={0}
               delay={10}
+>>>>>>> be85aa610d72d6ea34f055f92fc8f8e521da158b
             />
           </motion.div>
         )}
       </AnimatePresence>
+
+<<<<<<< HEAD
+      {/* Terminal Icon */}
+      <AnimatePresence>
+        {!isNavigating && (
+          <motion.div
+            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
+          >
+            <TerminalWindow
+              position={{ x: 82, y: 45 }}
+              rotation={0}
+              delay={10}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+=======
+      {/* Decorative elements - subtle grid pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #2C1810 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }}
+      />
+>>>>>>> be85aa610d72d6ea34f055f92fc8f8e521da158b
     </div>
   )
 }
