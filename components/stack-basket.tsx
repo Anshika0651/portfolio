@@ -84,107 +84,14 @@ export function StackBasket({ position, rotation, delay }: StackBasketProps) {
           </AnimatePresence>
         </div>
 
-        {/* Basket SVG — light blue, rectangular with grid/lattice pattern, top-down perspective */}
+        {/* Basket PNG image */}
         <div className="drop-shadow-lg">
-          <svg viewBox="0 0 120 88" className="w-[110px] h-[80px]">
-            <defs>
-              <linearGradient id="basketBody" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#A8D4E6" />
-                <stop offset="100%" stopColor="#7BB8D0" />
-              </linearGradient>
-              <linearGradient id="basketInner" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#c8e8f4" />
-                <stop offset="100%" stopColor="#a0ccde" />
-              </linearGradient>
-              <linearGradient id="basketFront" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#93C5D7" />
-                <stop offset="100%" stopColor="#6AAFC5" />
-              </linearGradient>
-              <linearGradient id="basketEdge" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#b8dce8" />
-                <stop offset="100%" stopColor="#8ec4d8" />
-              </linearGradient>
-            </defs>
-
-            {/* Outer basket body — perspective view */}
-            {/* Back wall (lighter) */}
-            <rect x="8" y="6" width="104" height="56" rx="4" fill="url(#basketEdge)" stroke="#6AAFC5" strokeWidth="1"/>
-
-            {/* Front face / main face */}
-            <rect x="4" y="18" width="112" height="66" rx="5" fill="url(#basketFront)" stroke="#5A9BB0" strokeWidth="1.2"/>
-
-            {/* Inner floor area */}
-            <rect x="10" y="26" width="100" height="52" rx="3" fill="url(#basketInner)" />
-
-            {/* Grid pattern on front face — rows of small rounded squares */}
-            {Array.from({ length: 5 }, (_, row) =>
-              Array.from({ length: 10 }, (_, col) => (
-                <rect
-                  key={`grid-${row}-${col}`}
-                  x={10 + col * 10.2}
-                  y={27 + row * 10.2}
-                  width={8.5}
-                  height={8.5}
-                  rx={1.5}
-                  fill="rgba(255,255,255,0.35)"
-                  stroke="rgba(90,155,176,0.3)"
-                  strokeWidth="0.5"
-                />
-              ))
-            )}
-
-            {/* Side wall grid — left */}
-            <rect x="4" y="18" width="6" height="66" rx="3" fill="#7BBDD2" />
-            {Array.from({ length: 5 }, (_, row) => (
-              <rect
-                key={`ls-${row}`}
-                x={5}
-                y={27 + row * 10.2}
-                width={4}
-                height={8.5}
-                rx={1}
-                fill="rgba(255,255,255,0.25)"
-                stroke="rgba(90,155,176,0.2)"
-                strokeWidth="0.4"
-              />
-            ))}
-
-            {/* Side wall grid — right */}
-            <rect x="110" y="18" width="6" height="66" rx="3" fill="#7BBDD2" />
-            {Array.from({ length: 5 }, (_, row) => (
-              <rect
-                key={`rs-${row}`}
-                x={111}
-                y={27 + row * 10.2}
-                width={4}
-                height={8.5}
-                rx={1}
-                fill="rgba(255,255,255,0.25)"
-                stroke="rgba(90,155,176,0.2)"
-                strokeWidth="0.4"
-              />
-            ))}
-
-            {/* Top rim */}
-            <rect x="4" y="16" width="112" height="6" rx="3" fill="#A0CEDF" stroke="#5A9BB0" strokeWidth="0.8"/>
-
-            {/* Left handle clip */}
-            <rect x="16" y="10" width="18" height="10" rx="3" fill="#7BBDD2" stroke="#5A9BB0" strokeWidth="1"/>
-            <rect x="19" y="12" width="12" height="6" rx="2" fill="#93C5D7" />
-            <rect x="21" y="13.5" width="8" height="3" rx="1.5" fill="rgba(255,255,255,0.5)" />
-
-            {/* Right handle clip */}
-            <rect x="86" y="10" width="18" height="10" rx="3" fill="#7BBDD2" stroke="#5A9BB0" strokeWidth="1"/>
-            <rect x="89" y="12" width="12" height="6" rx="2" fill="#93C5D7" />
-            <rect x="91" y="13.5" width="8" height="3" rx="1.5" fill="rgba(255,255,255,0.5)" />
-
-            {/* Bottom feet — small clips */}
-            <rect x="18" y="78" width="12" height="6" rx="2" fill="#7BBDD2" stroke="#5A9BB0" strokeWidth="0.8"/>
-            <rect x="90" y="78" width="12" height="6" rx="2" fill="#7BBDD2" stroke="#5A9BB0" strokeWidth="0.8"/>
-
-            {/* Silver/chrome rim highlight */}
-            <rect x="4" y="16" width="112" height="2" rx="1" fill="rgba(255,255,255,0.6)" />
-          </svg>
+          <img
+            src="/942d3a7555d16287e07d911a17087e16-removebg-preview.png"
+            alt="stack basket"
+            className="w-[110px] h-auto object-contain"
+            draggable={false}
+          />
         </div>
 
         <span className="font-mono text-xs text-espresso/90 bg-desktop/80 px-2 py-0.5 rounded whitespace-nowrap">

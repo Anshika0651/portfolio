@@ -35,13 +35,13 @@ export function ClipboardNote({ position, rotation, delay }: ClipboardNoteProps)
         onHoverStart={() => !isDragging && setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
-        {/* Clipboard SVG — slate blue/grey body, silver metal clip, white paper */}
+        {/* Clipboard with text overlay on hover */}
         <motion.div
           className="drop-shadow-lg relative"
           animate={{ scale: isHovered ? 1.05 : 1 }}
           transition={{ duration: 0.2 }}
         >
-          <svg viewBox="0 0 70 88" className="w-[70px] h-[88px]">
+          <svg viewBox="0 0 70 110" className="w-[70px] h-[110px]">
             <defs>
               <linearGradient id="clipboardBody" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#96AEBB" />
@@ -59,20 +59,20 @@ export function ClipboardNote({ position, rotation, delay }: ClipboardNoteProps)
             </defs>
 
             {/* Clipboard body — slate blue/grey with rounded corners */}
-            <rect x="2" y="4" width="66" height="82" rx="5" fill="url(#clipboardBody)" stroke="#6A8A98" strokeWidth="0.8"/>
+            <rect x="2" y="4" width="66" height="102" rx="5" fill="url(#clipboardBody)" stroke="#6A8A98" strokeWidth="0.8"/>
 
-            {/* White paper area */}
-            <rect x="6" y="16" width="58" height="66" rx="2" fill="#f0f2f4" stroke="rgba(106,138,152,0.3)" strokeWidth="0.5"/>
+            {/* White paper area — larger, below the clip */}
+            <rect x="6" y="20" width="58" height="80" rx="2" fill="#f0f2f4" stroke="rgba(106,138,152,0.3)" strokeWidth="0.5"/>
 
             {/* Paper subtle lines */}
-            <line x1="10" y1="26" x2="60" y2="26" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
             <line x1="10" y1="32" x2="60" y2="32" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
-            <line x1="10" y1="38" x2="60" y2="38" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
-            <line x1="10" y1="44" x2="60" y2="44" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
-            <line x1="10" y1="50" x2="60" y2="50" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="40" x2="60" y2="40" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="48" x2="60" y2="48" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
             <line x1="10" y1="56" x2="60" y2="56" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
-            <line x1="10" y1="62" x2="60" y2="62" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
-            <line x1="10" y1="68" x2="60" y2="68" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="64" x2="60" y2="64" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="72" x2="60" y2="72" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="80" x2="60" y2="80" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
+            <line x1="10" y1="88" x2="60" y2="88" stroke="rgba(106,138,152,0.15)" strokeWidth="0.5"/>
 
             {/* Metal clip base plate */}
             <rect x="18" y="2" width="34" height="14" rx="3" fill="url(#clipMetal)" stroke="#a0a8b0" strokeWidth="0.8"/>
@@ -94,27 +94,31 @@ export function ClipboardNote({ position, rotation, delay }: ClipboardNoteProps)
             <circle cx="48" cy="8" r="0.8" fill="#a0a8b0"/>
           </svg>
 
-          {/* Hover text content — fades in on hover */}
+          {/* Hover text content — positioned within white paper area */}
           <AnimatePresence>
             {isHovered && (
               <motion.div
-                className="absolute inset-0 flex flex-col justify-end pb-3 px-2 pointer-events-none"
+                className="absolute inset-0 flex items-start justify-start pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.15 }}
+                style={{ paddingTop: "24px", paddingLeft: "10px", paddingRight: "8px" }}
               >
-                <div className="mt-auto" style={{ paddingTop: "20px" }}>
-                  <p className="font-mono text-[6px] leading-tight text-espresso/80 text-left px-1">
-                    open to internships &amp; full time roles
+                <div className="text-left leading-relaxed">
+                  <p className="font-mono text-[9px] text-espresso/85 whitespace-normal">
+                    open to internships
                   </p>
-                  <p className="font-mono text-[6px] leading-tight text-espresso/60 text-left px-1">
-                    (actively looking)
+                  <p className="font-mono text-[9px] text-espresso/85 whitespace-normal">
+                    &amp; full time roles
                   </p>
-                  <p className="font-mono text-[6px] leading-tight text-espresso/80 text-left px-1 mt-0.5">
+                  <p className="font-mono text-[9px] text-espresso/70 whitespace-normal mt-1">
+                    (actively looking 👀)
+                  </p>
+                  <p className="font-mono text-[9px] text-espresso/85 whitespace-normal mt-1">
                     remote / hybrid /
                   </p>
-                  <p className="font-mono text-[6px] leading-tight text-espresso/80 text-left px-1">
+                  <p className="font-mono text-[9px] text-espresso/85 whitespace-normal">
                     anywhere interesting
                   </p>
                 </div>

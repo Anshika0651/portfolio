@@ -108,103 +108,14 @@ export function SocialsBag({ position, rotation, delay }: SocialsBagProps) {
           </AnimatePresence>
         </div>
 
-        {/* Tote bag SVG — dark espresso brown, wide rectangular body, two thin long straps */}
+        {/* Tote bag PNG image */}
         <div className="drop-shadow-lg">
-          <svg viewBox="0 0 100 108" className="w-[90px] h-[100px]">
-            <defs>
-              <linearGradient id="toteBagBody" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#3D1F14" />
-                <stop offset="100%" stopColor="#2C1810" />
-              </linearGradient>
-              <linearGradient id="toteStrap" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4A2819" />
-                <stop offset="100%" stopColor="#2A1610" />
-              </linearGradient>
-            </defs>
-
-            {/* Left strap — arcs upward, thin */}
-            <path
-              d="M30 52 C28 36, 36 14, 50 10 C64 14, 72 36, 70 52"
-              fill="none"
-              stroke="#1A0A06"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M30 52 C28 36, 36 14, 50 10 C64 14, 72 36, 70 52"
-              fill="none"
-              stroke="url(#toteStrap)"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-            />
-            {/* Strap inner highlight */}
-            <path
-              d="M31.5 50 C30 35, 37 15, 50 11.5 C63 15, 70 35, 68.5 50"
-              fill="none"
-              stroke="rgba(255,255,255,0.1)"
-              strokeWidth="1"
-              strokeLinecap="round"
-            />
-
-            {/* Bag body — slightly wider at bottom, soft slouchy rectangular shape */}
-            <path
-              d="M14 52
-                 C11 65, 10 80, 14 96
-                 Q20 108, 50 108
-                 Q80 108, 86 96
-                 C90 80, 89 65, 86 52
-                 Q72 46, 50 46
-                 Q28 46, 14 52 Z"
-              fill="url(#toteBagBody)"
-              stroke="#1A0A06"
-              strokeWidth="0.8"
-            />
-
-            {/* Top edge highlight (leather sheen) */}
-            <path
-              d="M14 52 Q50 44, 86 52 Q86 57, 50 55 Q14 57, 14 52 Z"
-              fill="rgba(255,255,255,0.09)"
-            />
-
-            {/* Left side fold/crease line */}
-            <path
-              d="M18 60 C16 74, 17 88, 20 100"
-              fill="none"
-              stroke="rgba(0,0,0,0.22)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-
-            {/* Right side fold/crease line */}
-            <path
-              d="M82 60 C84 74, 83 88, 80 100"
-              fill="none"
-              stroke="rgba(0,0,0,0.22)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-
-            {/* Subtle front sheen */}
-            <path
-              d="M28 62 C26 76, 27 90, 31 102"
-              fill="none"
-              stroke="rgba(255,255,255,0.07)"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-
-            {/* Knot detail where straps meet bag on left */}
-            <ellipse cx="30" cy="53" rx="5" ry="3.5" fill="#251410" />
-            <ellipse cx="30" cy="53" rx="3.5" ry="2.2" fill="#3A1C12" />
-
-            {/* Knot detail where straps meet bag on right */}
-            <ellipse cx="70" cy="53" rx="5" ry="3.5" fill="#251410" />
-            <ellipse cx="70" cy="53" rx="3.5" ry="2.2" fill="#3A1C12" />
-
-            {/* Bottom corner fold lines */}
-            <path d="M16 96 C18 102, 22 106, 28 108" fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeLinecap="round"/>
-            <path d="M84 96 C82 102, 78 106, 72 108" fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeLinecap="round"/>
-          </svg>
+          <img
+            src="/423c465fd232116e66a1efaf96a02fca-removebg-preview.png"
+            alt="socials bag"
+            className="w-[110px] h-auto object-contain"
+            draggable={false}
+          />
         </div>
 
         <span className="font-mono text-xs text-espresso/90 bg-desktop/80 px-2 py-0.5 rounded whitespace-nowrap">
