@@ -7,15 +7,15 @@ import { DesktopIcon } from "@/components/desktop-icon"
 import { SocialsBag } from "@/components/socials-bag"
 import { KeyboardIcon } from "@/components/keyboard-icon"
 import { StackBasket } from "@/components/stack-basket"
-import { BinderClipNote } from "@/components/binder-clip-note"
+import { TerminalWindow } from "@/components/terminal-window"
 
 const desktopIcons = [
-  { icon: "folder" as const, label: "about.exe", href: "/about", position: { x: 8, y: 15 }, rotation: -2 },
-  { icon: "folder" as const, label: "work/", href: "/work", position: { x: 75, y: 12 }, rotation: 3 },
-  { icon: "folder" as const, label: "projects/", href: "/projects", position: { x: 82, y: 55 }, rotation: -1 },
-  { icon: "document" as const, label: "stack.txt", href: "/stack", position: { x: 18, y: 45 }, rotation: 2 },
-  { icon: "pdf" as const, label: "experience.pdf", href: "/experience", position: { x: 70, y: 75 }, rotation: -3 },
-  { icon: "image" as const, label: "contact.jpeg", href: "/contact", position: { x: 35, y: 30 }, rotation: 4 },
+  { icon: "folder" as const, label: "about.exe", href: "/about", position: { x: 8, y: 8 }, rotation: -2 },
+  { icon: "image" as const, label: "contact.jpeg", href: "/contact", position: { x: 48, y: 12 }, rotation: 4 },
+  { icon: "folder" as const, label: "work/", href: "/work", position: { x: 88, y: 10 }, rotation: 3 },
+  { icon: "document" as const, label: "stack.txt", href: "/stack", position: { x: 18, y: 40 }, rotation: 2 },
+  { icon: "folder" as const, label: "projects/", href: "/projects", position: { x: 82, y: 68 }, rotation: -1 },
+  { icon: "pdf" as const, label: "experience.pdf", href: "/experience", position: { x: 88, y: 78 }, rotation: -3 },
 ]
 
 export default function DesktopPage() {
@@ -116,6 +116,21 @@ export default function DesktopPage() {
         ))}
       </AnimatePresence>
 
+      {/* Stack Basket */}
+      <AnimatePresence>
+        {!isNavigating && (
+          <motion.div
+            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
+          >
+            <StackBasket
+              position={{ x: 6, y: 38 }}
+              rotation={-3}
+              delay={7}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Socials Tote Bag */}
       <AnimatePresence>
         {!isNavigating && (
@@ -123,9 +138,9 @@ export default function DesktopPage() {
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
             <SocialsBag
-              position={{ x: 46, y: 28 }}
+              position={{ x: 48, y: 45 }}
               rotation={-2}
-              delay={7}
+              delay={8}
             />
           </motion.div>
         )}
@@ -138,38 +153,23 @@ export default function DesktopPage() {
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
             <KeyboardIcon
-              position={{ x: 55, y: 34 }}
+              position={{ x: 65, y: 45 }}
               rotation={2}
-              delay={8}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Stack Basket */}
-      <AnimatePresence>
-        {!isNavigating && (
-          <motion.div
-            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
-          >
-            <StackBasket
-              position={{ x: 6, y: 38 }}
-              rotation={-3}
               delay={9}
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Clipboard Note */}
+      {/* Terminal Icon */}
       <AnimatePresence>
         {!isNavigating && (
           <motion.div
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
           >
-            <BinderClipNote
-              position={{ x: 88, y: 28 }}
-              rotation={3}
+            <TerminalWindow
+              position={{ x: 82, y: 45 }}
+              rotation={0}
               delay={10}
             />
           </motion.div>
