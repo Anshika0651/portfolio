@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Syne, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GridRippleBackground } from '@/components/grid-ripple-background'
 import './globals.css'
 
 const playfair = Playfair_Display({ 
@@ -49,8 +50,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${syne.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased bg-desktop text-espresso">
-        {children}
+      <body className="font-sans antialiased text-espresso">
+        <GridRippleBackground />
+        <div className="relative z-[1] min-h-screen">
+          {children}
+        </div>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

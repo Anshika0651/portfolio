@@ -1,7 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { useRouter, usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { ArrowLeft, ArrowRight, LayoutGrid, List } from "lucide-react"
 
 const navItems = [
@@ -21,7 +22,12 @@ interface FinderLayoutProps {
 
 export function FinderLayout({ children, title, activeSection }: FinderLayoutProps) {
   const router = useRouter()
-  const pathname = usePathname()
+  const [isExiting, setIsExiting] = useState(false)
+
+  const navigateToDesktop = () => {
+    setIsExiting(true)
+    setTimeout(() => router.push("/"), 300)
+  }
 
   const currentIndex = navItems.findIndex(item => item.id === activeSection)
   const canGoBack = currentIndex > 0
@@ -41,16 +47,20 @@ export function FinderLayout({ children, title, activeSection }: FinderLayoutPro
 
   return (
     <motion.div
-      className="min-h-screen bg-desktop flex items-center justify-center p-4"
+      className="min-h-screen flex items-center justify-center p-4"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: isExiting ? 0 : 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
       <motion.div
         className="w-[95vw] h-[92vh] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col"
         initial={{ scale: 0.95, y: 20 }}
-        animate={{ scale: 1, y: 0 }}
+        animate={{
+          scale: isExiting ? 0.95 : 1,
+          y: isExiting ? 20 : 0,
+          opacity: isExiting ? 0 : 1,
+        }}
         exit={{ scale: 0.95, y: 20 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
@@ -59,7 +69,7 @@ export function FinderLayout({ children, title, activeSection }: FinderLayoutPro
           {/* Traffic lights */}
           <div className="flex items-center gap-2">
             <button
-              onClick={() => router.push("/")}
+              onClick={navigateToDesktop}
               className="w-3 h-3 rounded-full bg-[#ff5f57] hover:brightness-90 transition-all"
               aria-label="Close"
             />
@@ -87,7 +97,7 @@ export function FinderLayout({ children, title, activeSection }: FinderLayoutPro
 
           {/* Breadcrumb */}
           <div className="flex items-center gap-1 ml-4 font-mono text-xs text-zinc-500">
-            <span className="hover:text-zinc-700 cursor-pointer" onClick={() => router.push("/")}>desktop</span>
+            <span className="hover:text-zinc-700 cursor-pointer" onClick={navigateToDesktop}>desktop</span>
             <span className="text-zinc-400">&gt;</span>
             <span className="text-zinc-700">{title}</span>
           </div>
@@ -117,7 +127,7 @@ export function FinderLayout({ children, title, activeSection }: FinderLayoutPro
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => router.push(item.href)}
+                  onClick={() => (item.id === "desktop" ? navigateToDesktop() : router.push(item.href))}
                   className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-md text-left transition-all ${
                     activeSection === item.id
                       ? 'bg-[#6FA3C4] text-white'

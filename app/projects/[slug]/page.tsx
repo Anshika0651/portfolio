@@ -151,7 +151,7 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-desktop flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="font-mono text-espresso">Project not found</p>
       </div>
     )
@@ -159,7 +159,7 @@ export default function ProjectPage() {
 
   return (
     <motion.div
-      className="min-h-screen bg-desktop flex flex-col"
+      className="min-h-screen flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

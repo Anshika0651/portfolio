@@ -65,8 +65,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    background: #EDE8DF;
+  }
   body {
-    @apply bg-desktop text-espresso;
+    @apply text-espresso;
+    background: transparent;
   }
 }
 

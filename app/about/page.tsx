@@ -266,7 +266,6 @@ export default function AboutPage() {
       >
         <div 
           className="text-[15px] leading-[1.8] text-[#2C1810] max-w-2xl"
-          style={{ fontVariant: "small-caps" }}
         >
           {renderText()}
           {!typingComplete && (

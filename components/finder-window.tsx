@@ -14,7 +14,7 @@ export function FinderWindow({ title, children }: FinderWindowProps) {
 
   return (
     <motion.div
-      className="min-h-screen bg-desktop p-4 md:p-8"
+      className="min-h-screen p-4 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
