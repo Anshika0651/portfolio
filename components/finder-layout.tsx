@@ -8,7 +8,6 @@ import { ArrowLeft, ArrowRight, LayoutGrid, List } from "lucide-react"
 const navItems = [
   { id: "desktop", label: "desktop", icon: "🖥", href: "/" },
   { id: "about", label: "about", icon: "👤", href: "/about" },
-  { id: "work", label: "work", icon: "💼", href: "/work" },
   { id: "projects", label: "projects", icon: "🗂", href: "/projects" },
   { id: "experience", label: "experience", icon: "📋", href: "/experience" },
   { id: "contact", label: "contact", icon: "📬", href: "/contact" },

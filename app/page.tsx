@@ -12,7 +12,6 @@ import { TerminalWindow } from "@/components/terminal-window"
 const desktopIcons = [
   { icon: "folder" as const, label: "about.exe", href: "/about", position: { x: 8, y: 8 }, rotation: -2 },
   { icon: "image" as const, label: "contact.jpeg", href: "/contact", position: { x: 48, y: 12 }, rotation: 4 },
-  { icon: "folder" as const, label: "work/", href: "/work", position: { x: 88, y: 10 }, rotation: 3 },
   { icon: "document" as const, label: "stack.txt", href: "/stack", position: { x: 18, y: 40 }, rotation: 2 },
   { icon: "folder" as const, label: "projects/", href: "/projects", position: { x: 82, y: 68 }, rotation: -1 },
   { icon: "pdf" as const, label: "experience.pdf", href: "/experience", position: { x: 88, y: 78 }, rotation: -3 },
